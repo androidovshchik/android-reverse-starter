@@ -1,5 +1,7 @@
-## android-reverse-starter
+# android-reverse-starter
 > Useful tools for reverse out of the box (Linux compatible)
+
+## Setup
 
 ### Extra dependencies
 - wget
@@ -16,12 +18,14 @@ On Fedora
     $ dnf install -y wget jq unzip
 ```
 
-### Install or upgrade from config
+### First setup or upgrade from config
 ```
     $ sh init.sh
 ```
 
-### Decompile full all apk
+## Decompile
+
+### Decompile all apk full
 ```
     $ sh d.sh
 ```
@@ -70,6 +74,8 @@ On Fedora
         --version                           - print jadx version
         -h, --help                          - print this help
 ```
+
+## Compile
 
 ### Compile last apk from smali code via Apktool
 ```
