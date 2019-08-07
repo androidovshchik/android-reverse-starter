@@ -46,7 +46,7 @@ Don't lost to define location of Android SDK
     $ sh d.sh
 ```
 
-### Decompile all apk to smali code via Apktool
+### Decompile all apk to smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
     $ sh dsmali.sh [optional args]
         -f,--force              Force delete destination directory.
@@ -57,7 +57,7 @@ Don't lost to define location of Android SDK
         -t,--frame-tag <tag>    Uses framework files tagged by <tag>.
 ```
 
-### Decompile all apk to java code via JADX
+### Decompile all apk to java code via [JADX](https://github.com/skylot/jadx)
 ```
     $ sh djadx.sh [optional args]
         -d, --output-dir                    - output directory
@@ -93,7 +93,7 @@ Don't lost to define location of Android SDK
 
 ## Compile
 
-### Compile last apk from smali code via Apktool
+### Compile last apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
     $ sh bsmali.sh [optional args]
         -f,--force-all          Skip changes detection and build all files.
@@ -156,6 +156,20 @@ Don't lost to define location of Android SDK
 ### Install last apk
 ```
     $ sh install.sh
+        -r: replace existing application
+        -t: allow test packages
+        -d: allow version code downgrade (debuggable packages only)
+        -p: partial application install (install-multiple only)
+        -g: grant all runtime permissions
+        --instant: cause the app to be installed as an ephemeral install app
+        --no-streaming: always push APK to device and invoke Package Manager as separate steps
+        --streaming: force streaming APK directly into Package Manager
+        --fastdeploy: use fast deploy
+        --no-fastdeploy: prevent use of fast deploy
+        --force-agent: force update of deployment agent when using fast deploy
+        --date-check-agent: update deployment agent when local version is newer and using fast deploy
+        --version-check-agent: update deployment agent when local version has different version code and using fast deploy
+        --local-agent: locate agent files from local source build (instead of SDK location)
 ```
 
 ### Launch last apk

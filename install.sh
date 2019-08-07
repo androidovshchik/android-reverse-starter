@@ -5,12 +5,10 @@ if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
     exit 0
 fi
 
-uber_apk_signer_version=$(jq -r '.uber_apk_signer_version' config.json)
-apktool_version=$(jq -r '.apktool_version' config.json)
+ANDROID_HOME=$(jq -r '.ANDROID_HOME' config.json)
 
 dirs=($(ls -d smali_* 2> /dev/null | sort -r))
 if [[ -n "$dirs" ]]; then
     dir=${dirs[0]}
-    rm -rf ${dir}/dist
-    java -jar _libs/uber-apk-signer-${uber_apk_signer_version}.jar -a ${dir}/dist --out ${dir}/dist
+    ${ANDROID_HOME}/platform-tools/adb install -r ${dir}/dist/app-aligned-debugSigned.apk
 fi
