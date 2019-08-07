@@ -12,7 +12,7 @@
 
 ### Decompile apk to smali code
 ```
-    $ sh dsmali.sh [path/to/apk] [optional args]
+    $ sh dsmali.sh [optional args]
         -f,--force              Force delete destination directory.
         -p,--frame-path <dir>   Uses framework files located in <dir>.
         -r,--no-res             Do not decode resources.
@@ -22,7 +22,7 @@
 
 ### Compile apk from smali code
 ```
-    $ sh bsmali.sh [path/to/folder] [optional args]
+    $ sh bsmali.sh [optional args]
         -f,--force-all          Skip changes detection and build all files.
         -p,--frame-path <dir>   Uses framework files located in <dir>.
 ```
