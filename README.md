@@ -16,17 +16,17 @@ On Fedora
     $ dnf install -y wget jq unzip
 ```
 
-### Setup
+### Install or upgrade from config
 ```
-    $ sh install.sh
+    $ sh init.sh
 ```
 
-### Decompile apk full
+### Decompile full all apk
 ```
     $ sh d.sh
 ```
 
-### Decompile apk to smali code via Apktool
+### Decompile all apk to smali code via Apktool
 ```
     $ sh dsmali.sh [optional args]
         -f,--force              Force delete destination directory.
@@ -37,7 +37,7 @@ On Fedora
         -t,--frame-tag <tag>    Uses framework files tagged by <tag>.
 ```
 
-### Decompile apk to java code via JADX
+### Decompile all apk to java code via JADX
 ```
     $ sh djadx.sh [optional args]
         -d, --output-dir                    - output directory
@@ -71,16 +71,39 @@ On Fedora
         -h, --help                          - print this help
 ```
 
-### Compile apk from smali code via Apktool
-```
-    $ sh b.sh
-```
-
-Or
-
+### Compile last apk from smali code via Apktool
 ```
     $ sh bsmali.sh [optional args]
         -f,--force-all          Skip changes detection and build all files.
         -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
         -p,--frame-path <dir>   Uses framework files located in <dir>.
+```
+
+### Sign last apk from smali code via Apktool
+```
+    $ sh sign.sh [optional args]
+        -f,--force-all          Skip changes detection and build all files.
+        -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
+        -p,--frame-path <dir>   Uses framework files located in <dir>.
+```
+
+### Install last apk from smali code via Apktool
+```
+    $ sh install.sh [optional args]
+        -f,--force-all          Skip changes detection and build all files.
+        -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
+        -p,--frame-path <dir>   Uses framework files located in <dir>.
+```
+
+### Launch last apk from smali code via Apktool
+```
+    $ sh launch.sh [optional args]
+        -f,--force-all          Skip changes detection and build all files.
+        -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
+        -p,--frame-path <dir>   Uses framework files located in <dir>.
+```
+
+### Compile, sign as debug, install and launch last apk
+```
+    $ sh b.sh
 ```
