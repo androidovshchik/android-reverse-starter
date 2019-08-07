@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
-    echo "Usage: `basename $0` [optional args]"
+if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
+    echo 'Usage: `basename $0` [optional args]'
     exit 0
 fi
 
@@ -13,5 +13,4 @@ if [[ -n "$dirs" ]]; then
     dir=${dirs[0]}
     rm -rf ${dir}/dist
     java -jar _libs/apktool_${apktool_version}.jar b $@ ${dir} -o ${dir}/dist/reversed.apk
-    java -jar _libs/uber-apk-signer-${uber_apk_signer_version}.jar -a ${dir}/dist --out ${dir}/dist
 fi
