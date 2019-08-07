@@ -8,12 +8,12 @@
 
 On Debian
 ```
-    $ sudo apt-get install -y wget jq unzip
+    $ apt-get install -y wget jq unzip
 ```
 
 On Fedora
 ```
-    $ sudo dnf install -y wget jq unzip
+    $ dnf install -y wget jq unzip
 ```
 
 ### Setup
