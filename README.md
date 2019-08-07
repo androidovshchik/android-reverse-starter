@@ -4,23 +4,40 @@
 ### Dependencies
 - wget
 - jq
+- unzip
+
+On Debian
+```
+    $ sudo apt-get install wget jq unzip
+```
+
+On Fedora
+```
+    $ sudo dnf install wget jq unzip
+```
 
 ### Setup
 ```
     $ sh install.sh
 ```
 
-### Decompile apk to smali code
+### Decompile apk full
+```
+    $ sh d.sh
+```
+
+### Decompile apk to smali code via Apktool
 ```
     $ sh dsmali.sh [optional args]
         -f,--force              Force delete destination directory.
+        -o,--output <dir>       The name of folder that gets written. Default is apk.out
         -p,--frame-path <dir>   Uses framework files located in <dir>.
         -r,--no-res             Do not decode resources.
         -s,--no-src             Do not decode sources.
         -t,--frame-tag <tag>    Uses framework files tagged by <tag>.
 ```
 
-### Decompile apk to java code via jadx
+### Decompile apk to java code via JADX
 ```
     $ sh djadx.sh [optional args]
         -d, --output-dir                    - output directory
@@ -50,11 +67,14 @@
         --raw-cfg                           - save methods control flow graph (use raw instructions)
         -f, --fallback                      - make simple dump (using goto instead of 'if', 'for', etc)
         -v, --verbose                       - verbose output
+        --version                           - print jadx version
+        -h, --help                          - print this help
 ```
 
-### Compile apk from smali code
+### Compile apk from smali code via Apktool
 ```
     $ sh bsmali.sh [optional args]
         -f,--force-all          Skip changes detection and build all files.
+        -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
         -p,--frame-path <dir>   Uses framework files located in <dir>.
 ```
