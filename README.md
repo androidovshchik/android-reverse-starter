@@ -73,6 +73,12 @@ On Fedora
 
 ### Compile apk from smali code via Apktool
 ```
+    $ sh b.sh
+```
+
+Or
+
+```
     $ sh bsmali.sh [optional args]
         -f,--force-all          Skip changes detection and build all files.
         -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
