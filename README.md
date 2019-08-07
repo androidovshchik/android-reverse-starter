@@ -18,14 +18,28 @@ On Fedora
     $ dnf install -y wget jq unzip
 ```
 
-### First setup or upgrade from config
+### Config
+Change versions if it's needed
+
+Don't lost to define location of Android SDK
+
+```
+{
+  "uber_apk_signer_version": "1.0.0",
+  "apktool_version": "2.4.0",
+  "jadx_version": "1.0.0",
+  "ANDROID_HOME": "/home/vlad/android-sdk"
+}
+```
+
+### First setup or upgrade
 ```
     $ sh init.sh
 ```
 
 ## Decompile
 
-### Decompile all apk full
+### Decompile all apk and move to `_original` folder
 ```
     $ sh d.sh
 ```
@@ -85,28 +99,19 @@ On Fedora
         -p,--frame-path <dir>   Uses framework files located in <dir>.
 ```
 
-### Sign last apk from smali code via Apktool
+### Sign last apk
 ```
-    $ sh sign.sh [optional args]
-        -f,--force-all          Skip changes detection and build all files.
-        -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
-        -p,--frame-path <dir>   Uses framework files located in <dir>.
+    $ sh sign.sh
 ```
 
-### Install last apk from smali code via Apktool
+### Install last apk
 ```
-    $ sh install.sh [optional args]
-        -f,--force-all          Skip changes detection and build all files.
-        -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
-        -p,--frame-path <dir>   Uses framework files located in <dir>.
+    $ sh install.sh
 ```
 
-### Launch last apk from smali code via Apktool
+### Launch last apk
 ```
-    $ sh launch.sh [optional args]
-        -f,--force-all          Skip changes detection and build all files.
-        -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
-        -p,--frame-path <dir>   Uses framework files located in <dir>.
+    $ sh launch.sh
 ```
 
 ### Compile, sign as debug, install and launch last apk

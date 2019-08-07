@@ -1,5 +1,6 @@
 {
   "uber_apk_signer_version": "1.0.0",
   "apktool_version": "2.4.0",
-  "jadx_version": "1.0.0"
+  "jadx_version": "1.0.0",
+  "ANDROID_HOME": "/home/vlad/android-sdk"
 }
