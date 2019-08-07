@@ -9,9 +9,8 @@ apktool_version=$(jq -r '.apktool_version' config.json)
 
 IFS=$'\n'
 
-mkdir -p original
 for apk in $(ls *.apk 2> /dev/null); do
     dir=smali_$(echo "${apk}" | sed -r 's/[^a-zA-Z0-9]+//g')_$(date '+%Y%m%d_%H%M%S')
-    java -jar libs/apktool_${apktool_version}.jar d "${apk}" -o ${dir} $@
+    java -jar libs/apktool_${apktool_version}.jar d "${apk}" $@ -o ${dir}
     sleep 1
 done
