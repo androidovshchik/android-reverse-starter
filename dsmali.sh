@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
-    echo "Usage: `basename $0` [path/to/apk]"
+    echo "Usage: `basename $0` [path/to/apk] [optional args]"
     exit 0
 fi
 
