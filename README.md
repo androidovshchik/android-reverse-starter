@@ -41,7 +41,7 @@ Don't lost to define location of Android SDK
 
 ## Decompile
 
-### Decompile all apk and move to `_original` folder
+### Decompile all apk (after move to `_original`)
 ```
     $ sh d.sh
 ```
@@ -103,9 +103,7 @@ Don't lost to define location of Android SDK
 
 ### Sign last apk
 ```
-    $ sh sign.sh
-
-
+    $ sh sign.sh [optional args]
         -a,--apks <file/folder>           Can be a single apk or a folder containing multiple apks. These are used
                                           as source for zipalining/signing/verifying. It is also possible to
                                           provide multiple locations space seperated (can be mixed file folder):
