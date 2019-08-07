@@ -1,7 +1,7 @@
 #!/bin/bash
 
-uber_apk_signer_version="1.0.0"
-apktool_version="2.4.0"
+uber_apk_signer_version=$(jq -r '.uber_apk_signer_version' config.json)
+apktool_version=$(jq -r '.apktool_version' config.json)
 
 rm -rf libs
 mkdir -p libs

@@ -1,6 +1,10 @@
 ## android-reverse-starter
 > Useful tools for reverse out of the box (Linux compatible)
 
+### Dependencies
+- wget
+- jq
+
 ### Setup
 ```
     $ sh install.sh

@@ -1,3 +1,5 @@
-.idea
-*.iml
-libs
+*
+!*.sh
+!config.json
+!LICENSE
+!README.md

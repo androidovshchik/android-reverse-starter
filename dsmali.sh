@@ -5,4 +5,6 @@ if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
     exit 0
 fi
 
-java -jar libs/apktool_1.0.0.jar d
+apktool_version=$(jq -r '.apktool_version' config.json)
+
+java -jar libs/apktool_1.0.0.jar d $1 -o $(date +"%T")
