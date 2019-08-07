@@ -1,7 +1,7 @@
 ## android-reverse-starter
 > Useful tools for reverse out of the box (Linux compatible)
 
-### Dependencies
+### Extra dependencies
 - wget
 - jq
 - unzip
