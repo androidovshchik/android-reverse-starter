@@ -1,6 +1,6 @@
 #!/bin/bash
 
 bash bsmali.sh
-bash sign.sh
-bash install.sh
-bash launch.sh
+bash rsign.sh
+bash rinstall.sh
+bash rlaunch.sh

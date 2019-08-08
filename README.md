@@ -90,9 +90,9 @@ $ sh djadx.sh [optional args]
     -h, --help                          - print this help
 ```
 
-## Compile
+## Build
 
-### Compile, sign as debug, install and launch last apk
+### Build, sign as debug, install and launch last apk
 ```
 $ sh b.sh
 ```
@@ -105,9 +105,11 @@ $ sh bsmali.sh [optional args]
     -p,--frame-path <dir>   Uses framework files located in <dir>.
 ```
 
+## Run
+
 ### Sign last apk
 ```
-$ sh sign.sh [optional args]
+$ sh rsign.sh [optional args]
     -a,--apks <file/folder>           Can be a single apk or a folder containing multiple apks. These are used
                                       as source for zipalining/signing/verifying. It is also possible to
                                       provide multiple locations space seperated (can be mixed file folder):
@@ -159,7 +161,7 @@ $ sh sign.sh [optional args]
 
 ### Install last apk
 ```
-$ sh install.sh [optional args]
+$ sh rinstall.sh [optional args]
     -r: replace existing application
     -t: allow test packages
     -d: allow version code downgrade (debuggable packages only)
@@ -179,5 +181,5 @@ $ sh install.sh [optional args]
 ### Launch last apk
 Notice that app info will be parsed from decompiled `AndroidManifest.xml`
 ```
-$ sh launch.sh
+$ sh rlaunch.sh
 ```
