@@ -60,7 +60,6 @@ $ sh dsmali.sh [optional args]
 ### Decompile all apk to java code via [JADX](https://github.com/skylot/jadx)
 ```
 $ sh djadx.sh [optional args]
-    -d, --output-dir                    - output directory
     -ds, --output-dir-src               - output directory for sources
     -dr, --output-dir-res               - output directory for resources
     -j, --threads-count                 - processing threads count
@@ -160,7 +159,7 @@ $ sh sign.sh [optional args]
 
 ### Install last apk
 ```
-$ sh install.sh
+$ sh install.sh [optional args]
     -r: replace existing application
     -t: allow test packages
     -d: allow version code downgrade (debuggable packages only)
@@ -178,6 +177,7 @@ $ sh install.sh
 ```
 
 ### Launch last apk
+Notice that app info will be parsed from decompiled AndroidManifest.xml
 ```
 $ sh launch.sh
 ```

@@ -8,7 +8,7 @@ fi
 apktool_version=$(xmlstarlet sel -t -v '/config/apktool_version' config.xml)
 
 IFS=$'\n'
-for apk in $(ls *.apk 2> /dev/null); do
+for apk in $(ls *.apk 2> /dev/null | sort); do
     dir=smali_$(date '+%Y%m%d_%H%M%S')_$(echo "${apk}" | sed -r 's/([^a-zA-Z0-9]+|.apk$)//g')
     java -jar _libs/apktool_${apktool_version}.jar d "${apk}" $@ -o ${dir} 2>&1 | grep 'I:'
     sleep 1
