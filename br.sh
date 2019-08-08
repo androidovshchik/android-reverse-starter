@@ -13,7 +13,4 @@ if [[ "$SELECTED_DEVICE" = "0" ]]; then
 fi
 
 bash rinstall.sh
-
-adb -s ${SELECTED_DEVICE} shell input keyevent 26
-
 bash rlaunch.sh
