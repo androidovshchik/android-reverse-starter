@@ -9,29 +9,29 @@
 
 ### Extra dependencies
 - wget
-- jq
+- xmlstarlet
 - unzip
 
 On Debian
 ```
-$ apt-get install -y wget jq unzip
+$ apt-get install -y wget xmlstarlet unzip
 ```
 
 On Fedora
 ```
-$ dnf install -y wget jq unzip
+$ dnf install -y wget xmlstarlet unzip
 ```
 
 ### Config file
-Don't lost to define location of Android SDK
+Don't lost to define the location of Android SDK
 
 ```
-{
-  "uber_apk_signer_version": "1.0.0",
-  "apktool_version": "2.4.0",
-  "jadx_version": "1.0.0",
-  "ANDROID_HOME": "/path/to/android/sdk"
-}
+<config>
+    <uber_apk_signer_version>1.0.0</uber_apk_signer_version>
+    <apktool_version>2.4.0</apktool_version>
+    <jadx_version>1.0.0</jadx_version>
+    <ANDROID_HOME>/home/vlad/android-sdk</ANDROID_HOME>
+</config>
 ```
 
 ### First setup or upgrade

@@ -5,7 +5,7 @@ if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
     exit 0
 fi
 
-jadx_version=$(jq -r '.jadx_version' config.json)
+jadx_version=$(xmlstarlet sel -t -v '/config/jadx_version' config.xml)
 
 IFS=$'\n'
 for apk in $(ls *.apk 2> /dev/null); do

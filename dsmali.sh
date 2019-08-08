@@ -5,7 +5,7 @@ if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
     exit 0
 fi
 
-apktool_version=$(jq -r '.apktool_version' config.json)
+apktool_version=$(xmlstarlet sel -t -v '/config/apktool_version' config.xml)
 
 IFS=$'\n'
 for apk in $(ls *.apk 2> /dev/null); do
