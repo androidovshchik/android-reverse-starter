@@ -41,9 +41,9 @@ $ sh _init.sh
 
 ## Decompile
 
-### Decompile all apk (after move to `_original`)
+### Decompile and move to `_original` all apk
 ```
-$ sh d.sh
+$ sh dm.sh
 ```
 
 ### Decompile all apk to smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
@@ -92,12 +92,12 @@ $ sh djadx.sh [optional args]
 
 ## Build
 
-### Build, sign as debug, install and launch last apk
+### Build and run last apk
 ```
-$ sh b.sh
+$ sh br.sh
 ```
 
-### Compile last apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
+### Build last apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
 $ sh bsmali.sh [optional args]
     -f,--force-all          Skip changes detection and build all files.
