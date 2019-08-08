@@ -94,7 +94,8 @@ $ sh djadx.sh [optional args]
 
 ### Build and run last apk
 ```
-$ sh br.sh
+$ sh br.sh [optional args]
+    -r    Restart ADB
 ```
 
 ### Build last apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
@@ -162,7 +163,6 @@ $ sh rsign.sh [optional args]
 ### Install last apk
 ```
 $ sh rinstall.sh [optional args]
-    -r: replace existing application
     -t: allow test packages
     -d: allow version code downgrade (debuggable packages only)
     -p: partial application install (install-multiple only)
