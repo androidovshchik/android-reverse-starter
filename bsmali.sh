@@ -5,12 +5,11 @@ if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
     exit 0
 fi
 
-uber_apk_signer_version=$(jq -r '.uber_apk_signer_version' config.json)
-apktool_version=$(jq -r '.apktool_version' config.json)
+apktool_version=$(xmlstarlet sel -t -v '/config/apktool_version' config.xml)
 
 dirs=($(ls -d smali_* 2> /dev/null | sort -r))
 if [[ -n "$dirs" ]]; then
     dir=${dirs[0]}
     rm -rf ${dir}/dist
-    java -jar _libs/apktool_${apktool_version}.jar b $@ ${dir} -o ${dir}/dist/reversed.apk
+    java -jar _libs/apktool_${apktool_version}.jar b $@ ${dir} -o ${dir}/dist/app.apk 2>&1 | grep 'I:'
 fi

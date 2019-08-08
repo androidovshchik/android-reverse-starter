@@ -36,7 +36,7 @@ Don't lost to define the location of Android SDK
 
 ### First setup or upgrade
 ```
-$ sh init.sh
+$ sh _init.sh
 ```
 
 ## Decompile
@@ -177,7 +177,7 @@ $ sh install.sh [optional args]
 ```
 
 ### Launch last apk
-Notice that app info will be parsed from decompiled AndroidManifest.xml
+Notice that app info will be parsed from decompiled `AndroidManifest.xml`
 ```
 $ sh launch.sh
 ```
