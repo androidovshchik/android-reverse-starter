@@ -3,7 +3,7 @@
 # This script will dump all activities running on a device
 
 # Include the shell script that contains the function to select a device
-source adbwrapper-func.sh
+source _selector.sh
 
 # Get the device to use for this command
 selectDevice SELECTED_DEVICE

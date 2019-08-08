@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ ! -v SELECTED_DEVICE ]]; then
-    source _adb/adbwrapper-func.sh
+    source _adb/_selector.sh
 
     selectDevice SELECTED_DEVICE
 

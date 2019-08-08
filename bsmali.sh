@@ -11,5 +11,5 @@ dirs=($(ls -d smali_* 2> /dev/null | sort -r))
 if [[ -n "$dirs" ]]; then
     dir=${dirs[0]}
     rm -rf ${dir}/dist
-    java -jar _libs/apktool_${apktool_version}.jar b $@ ${dir} -o ${dir}/dist/app.apk 2>&1 | grep 'I:'
+    java -jar _libs/apktool_${apktool_version}.jar b $@ ${dir} -o ${dir}/dist/app.apk
 fi

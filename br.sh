@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source _adb/adbwrapper-func.sh
+source _adb/_selector.sh
 
 bash bsmali.sh
 bash rsign.sh
