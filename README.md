@@ -187,6 +187,6 @@ $ sh rinstall.sh [optional args]
 ### Launch last apk
 Notice that app info will be parsed from decompiled `AndroidManifest.xml`
 ```
-$ sh rlaunch.sh
+$ sh rlaunch.sh [optional args]
     -i=<number>    Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
 ```
