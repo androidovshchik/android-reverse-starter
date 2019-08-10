@@ -6,11 +6,12 @@ if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
 fi
 
 index=-1
-
 for arg in "$@" ; do
     case ${arg} in
         -i=*)
             index=${arg#*=}
+            ;;
+        -ar)
             ;;
         *)
             args+=("$arg")

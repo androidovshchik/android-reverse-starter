@@ -6,7 +6,7 @@ if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
 fi
 
 bash bsmali.sh $@
-bash rsign.sh
+bash rsign.sh $@
 
 for arg in "$@" ; do
     if [[ ${arg} == "-ar" ]]; then
@@ -24,5 +24,5 @@ if [[ "$SELECTED_DEVICE" = "0" ]]; then
   exit 0;
 fi
 
-bash rinstall.sh
-bash rlaunch.sh
+bash rinstall.sh $@
+bash rlaunch.sh $@

@@ -115,6 +115,7 @@ $ sh bsmali.sh [optional args]
 ### Sign last apk
 ```
 $ sh rsign.sh [optional args]
+    -i=<number>                       Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
     -a,--apks <file/folder>           Can be a single apk or a folder containing multiple apks. These are used
                                       as source for zipalining/signing/verifying. It is also possible to
                                       provide multiple locations space seperated (can be mixed file folder):
@@ -167,6 +168,7 @@ $ sh rsign.sh [optional args]
 ### Install last apk
 ```
 $ sh rinstall.sh [optional args]
+    -i=<number> Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
     -t: allow test packages
     -d: allow version code downgrade (debuggable packages only)
     -p: partial application install (install-multiple only)
@@ -186,4 +188,5 @@ $ sh rinstall.sh [optional args]
 Notice that app info will be parsed from decompiled `AndroidManifest.xml`
 ```
 $ sh rlaunch.sh
+    -i=<number>    Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
 ```
