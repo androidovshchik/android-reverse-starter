@@ -41,14 +41,14 @@ $ sh _init.sh
 
 ## Decompile
 
-### Decompile and move to `_original` all apk
+### Decompile and move to `_original` available apk
 ```
 $ sh dm.sh
     -ds    Include decompilation to smali code via Apktool
     -dj    Include decompilation to java code via JADX
 ```
 
-### Decompile all apk to smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
+### Decompile available apk to smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
 $ sh dsmali.sh [optional args]
     -f,--force              Force delete destination directory.
@@ -59,7 +59,7 @@ $ sh dsmali.sh [optional args]
     -t,--frame-tag <tag>    Uses framework files tagged by <tag>.
 ```
 
-### Decompile all apk to java code via [JADX](https://github.com/skylot/jadx)
+### Decompile available apk to java code via [JADX](https://github.com/skylot/jadx)
 ```
 $ sh djadx.sh [optional args]
     -ds, --output-dir-src               - output directory for sources
@@ -94,14 +94,14 @@ $ sh djadx.sh [optional args]
 
 ## Build
 
-### Build and run last apk
+### Build and run apk
 ```
 $ sh br.sh [optional args]
     -ar            Restart ADB
     -i=<number>    Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
 ```
 
-### Build last apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
+### Build apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
 $ sh bsmali.sh [optional args]
     -i=<number>             Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
@@ -112,7 +112,7 @@ $ sh bsmali.sh [optional args]
 
 ## Run
 
-### Sign last apk
+### Sign apk
 ```
 $ sh rsign.sh [optional args]
     -i=<number>                       Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
@@ -165,7 +165,7 @@ $ sh rsign.sh [optional args]
                                       version is used (available for win, mac and linux)
 ```
 
-### Install last apk
+### Install apk
 ```
 $ sh rinstall.sh [optional args]
     -i=<number> Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
@@ -184,7 +184,7 @@ $ sh rinstall.sh [optional args]
     --local-agent: locate agent files from local source build (instead of SDK location)
 ```
 
-### Launch last apk
+### Launch apk
 Notice that app info will be parsed from decompiled `AndroidManifest.xml`
 ```
 $ sh rlaunch.sh [optional args]
