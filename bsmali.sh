@@ -12,6 +12,9 @@ for arg in "$@" ; do
         -i=*)
             index=${arg#*=}
             ;;
+        *)
+            args+=("$arg")
+            ;;
     esac
 done
 
@@ -22,7 +25,7 @@ for position in ${!dirs[@]}; do
     if [[ $((-1 - position)) == ${index} ]] || [[ $((${#dirs[@]} - position)) == ${index} ]]; then
         dir=${dirs[position]}
         rm -rf ${dir}/dist
-        java -jar _libs/apktool_${apktool_version}.jar b $@ ${dir} -o ${dir}/dist/app.apk
+        java -jar _libs/apktool_${apktool_version}.jar b ${args[@]} ${dir} -o ${dir}/dist/app.apk
         break
     fi
 done

@@ -5,8 +5,6 @@ if [[ '$1' == '-h' ]] || [[ '$1' == '--help' ]]; then
     exit 0
 fi
 
-source _adb/_selector.sh
-
 bash bsmali.sh $@
 bash rsign.sh
 
@@ -16,6 +14,8 @@ for arg in "$@" ; do
         break
     fi
 done
+
+source _adb/_selector.sh
 
 selectDevice SELECTED_DEVICE
 
