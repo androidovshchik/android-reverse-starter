@@ -97,13 +97,14 @@ $ sh djadx.sh [optional args]
 ### Build and run last apk
 ```
 $ sh br.sh [optional args]
-    -ar    Restart ADB
-    -i=<number>  Index of smali project in -n...-1 as DESC order or 1..+n as ASC order
+    -ar            Restart ADB
+    -i=<number>    Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
 ```
 
 ### Build last apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
 $ sh bsmali.sh [optional args]
+    -i=<number>             Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
     -f,--force-all          Skip changes detection and build all files.
     -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
     -p,--frame-path <dir>   Uses framework files located in <dir>.
