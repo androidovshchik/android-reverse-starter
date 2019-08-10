@@ -1,7 +1,17 @@
 #!/bin/bash
 
-bash dsmali.sh
-bash djadx.sh
+for arg in "$@" ; do
+    if [[ ${arg} == "-ds" ]]; then
+        bash dsmali.sh
+        break
+    fi
+done
+for arg in "$@" ; do
+    if [[ ${arg} == "-dj" ]]; then
+        bash djadx.sh
+        break
+    fi
+done
 
 IFS=$'\n'
 mkdir -p _original

@@ -44,6 +44,8 @@ $ sh _init.sh
 ### Decompile and move to `_original` all apk
 ```
 $ sh dm.sh
+    -ds    Include decompilation to smali code via Apktool
+    -dj    Include decompilation to java code via JADX
 ```
 
 ### Decompile all apk to smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
@@ -95,7 +97,8 @@ $ sh djadx.sh [optional args]
 ### Build and run last apk
 ```
 $ sh br.sh [optional args]
-    -r    Restart ADB
+    -ar    Restart ADB
+    -i=<number>  Index of smali project in -n...-1 as DESC order or 1..+n as ASC order
 ```
 
 ### Build last apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)

@@ -7,11 +7,11 @@ fi
 
 source _adb/_selector.sh
 
-bash bsmali.sh
+bash bsmali.sh $@
 bash rsign.sh
 
 for arg in "$@" ; do
-    if [[ ${arg} == "-r" ]]; then
+    if [[ ${arg} == "-ar" ]]; then
         bash _adb/restart.sh
         break
     fi
