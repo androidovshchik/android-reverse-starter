@@ -2,7 +2,7 @@
 > Useful tools for reverse out of the box (Linux compatible)
 
 ## Requirements
-* JDK 8
+* JDK
 * Currently on Linux 32bit: zipalign must be set in `PATH`
 
 ## Setup
@@ -20,6 +20,11 @@ $ apt-get install -y wget xmlstarlet unzip
 On Fedora
 ```
 $ dnf install -y wget xmlstarlet unzip
+```
+
+On Arch
+```
+$ pacman -S wget xmlstarlet unzip
 ```
 
 ### Config file
