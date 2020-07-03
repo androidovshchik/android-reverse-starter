@@ -41,21 +41,21 @@ Don't lost to define the location of Android SDK
 
 ### First setup or upgrade
 ```
-$ sh _init.sh
+$ bash _init.sh
 ```
 
 ## Decompile
 
 ### Decompile and move to `_original` available apk
 ```
-$ sh dm.sh
+$ bash dm.sh
     -ds    Include decompilation to smali code via Apktool
     -dj    Include decompilation to java code via JADX
 ```
 
 ### Decompile available apk to smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
-$ sh dsmali.sh [optional args]
+$ bash dsmali.sh [optional args]
     -f,--force              Force delete destination directory.
     -o,--output <dir>       The name of folder that gets written. Default is apk.out
     -p,--frame-path <dir>   Uses framework files located in <dir>.
@@ -66,7 +66,7 @@ $ sh dsmali.sh [optional args]
 
 ### Decompile available apk to java code via [JADX](https://github.com/skylot/jadx)
 ```
-$ sh djadx.sh [optional args]
+$ bash djadx.sh [optional args]
     -ds, --output-dir-src               - output directory for sources
     -dr, --output-dir-res               - output directory for resources
     -j, --threads-count                 - processing threads count
@@ -101,14 +101,14 @@ $ sh djadx.sh [optional args]
 
 ### Build and run apk
 ```
-$ sh br.sh [optional args]
+$ bash br.sh [optional args]
     -ar            Restart ADB
     -i=<number>    Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
 ```
 
 ### Build apk from smali code via [Apktool](https://github.com/iBotPeaches/Apktool)
 ```
-$ sh bsmali.sh [optional args]
+$ bash bsmali.sh [optional args]
     -i=<number>             Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
     -f,--force-all          Skip changes detection and build all files.
     -o,--output <dir>       The name of apk that gets written. Default is dist/name.apk
@@ -119,7 +119,7 @@ $ sh bsmali.sh [optional args]
 
 ### Sign apk
 ```
-$ sh rsign.sh [optional args]
+$ bash rsign.sh [optional args]
     -i=<number>                       Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
     -a,--apks <file/folder>           Can be a single apk or a folder containing multiple apks. These are used
                                       as source for zipalining/signing/verifying. It is also possible to
@@ -170,9 +170,14 @@ $ sh rsign.sh [optional args]
                                       version is used (available for win, mac and linux)
 ```
 
+Example for release sign
+```
+$ bash rsign.sh --ks release.jks --ksPass myPass --ksAlias myAlias --ksKeyPass myKeyPass
+```
+
 ### Install apk
 ```
-$ sh rinstall.sh [optional args]
+$ bash rinstall.sh [optional args]
     -i=<number> Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
     -t: allow test packages
     -d: allow version code downgrade (debuggable packages only)
@@ -192,6 +197,6 @@ $ sh rinstall.sh [optional args]
 ### Launch apk
 Notice that app info will be parsed from decompiled `AndroidManifest.xml`
 ```
-$ sh rlaunch.sh [optional args]
+$ bash rlaunch.sh [optional args]
     -i=<number>    Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
 ```
