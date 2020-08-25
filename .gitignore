@@ -1,5 +1,5 @@
 *
-!*.sh
+!*.js
 !LICENSE
 !README.md
 !_adb
