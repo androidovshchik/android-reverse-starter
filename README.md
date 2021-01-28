@@ -1,5 +1,5 @@
 # android-reverse-starter
-> Useful tools for reverse out of the box (Linux compatible)
+> Useful tools for reverse out of the box (Unix compatible)
 
 ## Requirements
 * JDK
@@ -25,6 +25,11 @@ $ dnf install -y wget xmlstarlet unzip
 On Arch
 ```
 $ pacman -S wget xmlstarlet unzip
+```
+
+On Mac OS
+```
+$ brew install wget xmlstarlet unzip
 ```
 
 ### Config file
