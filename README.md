@@ -200,7 +200,7 @@ $ bash rinstall.sh [optional args]
 ```
 
 ### Launch apk
-Notice that app info will be parsed from decompiled `AndroidManifest.xml`
+> Notice that app info will be parsed from decompiled `AndroidManifest.xml`
 ```
 $ bash rlaunch.sh [optional args]
     -i=<number>    Index of smali project in -n...-1 as DESC order or 1..+n as ASC order. Default is -1 which means last
@@ -208,8 +208,8 @@ $ bash rlaunch.sh [optional args]
 
 ## Other
 
-### Hack sign
-Notice that this tool is only valid for those apps that only use `PackageManager.getPackageInfo().signatures` to verify signatures.
+### Hack sign via [ApkSignatureKiller](https://github.com/L-JINBIN/ApkSignatureKiller)
+> Notice that this tool is only valid for those apps that only use `packageManager.getPackageInfo(...).signatures` to verify signatures
 ```
 $ bash hsign.sh
 ```
