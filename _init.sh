@@ -16,3 +16,5 @@ wget https://github.com/iBotPeaches/Apktool/releases/download/v${apktool_version
 wget https://github.com/skylot/jadx/releases/download/v${jadx_version}/jadx-${jadx_version}.zip
 unzip jadx-${jadx_version}.zip -d _jadx-${jadx_version}
 rm jadx-${jadx_version}.zip
+
+wget https://raw.githubusercontent.com/L-JINBIN/ApkSignatureKiller/master/nkstool.jar -O _libs/nkstool.jar

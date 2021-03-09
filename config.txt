@@ -1,0 +1,15 @@
+# Get signature information
+apk.signed=src.apk
+
+# APK for processing
+apk.src=src.apk
+
+# Output name of APK
+apk.out=out.apk
+
+# Signature configuration
+sign.enable=true
+sign.file=~/.android/debug.keystore
+sign.password=android
+sign.alias=androiddebugkey
+sign.aliasPassword=android
