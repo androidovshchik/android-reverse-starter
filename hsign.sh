@@ -1,12 +1,16 @@
 #!/bin/bash
 
+if [[ "$1" == '-h' ]] || [[ "$1" == '--help' ]]; then
+    echo "Usage: `basename $0`"
+    exit 0
+fi
+
 sed -i "s|~|$HOME|g" config.txt
 
 IFS=$'\n'
 for apk in $(ls *.apk 2> /dev/null); do
     if [ "$apk" != "src.apk" ]; then
         mv "$apk" src.apk
-        break
     fi
 done
 
