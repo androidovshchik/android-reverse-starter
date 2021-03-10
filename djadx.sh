@@ -20,6 +20,6 @@ done
 IFS=$'\n'
 for apk in $(ls *.apk 2> /dev/null | sort); do
     dir=jadx_$(date '+%Y%m%d_%H%M%S')_$(echo "${apk}" | sed -r 's/([^a-zA-Z0-9]+|.apk$)//g')
-    _jadx-${jadx_version}/bin/jadx "${apk}" -d ${dir} ${args[@]} | grep -E '(- loading|- processing|- done|- finished)'
+    _jadx-${jadx_version}/bin/jadx "${apk}" -d ${dir} ${args[@]}
     sleep 1
 done
