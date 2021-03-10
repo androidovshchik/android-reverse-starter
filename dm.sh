@@ -6,7 +6,7 @@ if [[ "$1" == '-h' ]] || [[ "$1" == '--help' ]]; then
 fi
 
 for arg in "$@" ; do
-    if [[ ${arg} == "-ds" ]]; then
+    if [[ ${arg} == "-da" ]]; then
         bash dsmali.sh $@
         break
     fi

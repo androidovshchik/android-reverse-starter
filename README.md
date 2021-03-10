@@ -54,7 +54,7 @@ $ bash _init.sh
 ### Decompile and move to `_original` available apk
 ```
 $ bash dm.sh
-    -ds    Include decompilation to smali code via Apktool
+    -da    Include decompilation to smali code via Apktool
     -dj    Include decompilation to java code via JADX
 ```
 
