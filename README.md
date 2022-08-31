@@ -213,3 +213,8 @@ $ bash rlaunch.sh [optional args]
 ```
 $ bash hsign.sh
 ```
+
+### Merge split apks via [SplitPacker](https://github.com/TheArmKing/SplitPacker)
+```
+$ bash SplitPacker.sh [dir]
+```
