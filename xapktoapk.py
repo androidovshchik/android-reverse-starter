@@ -304,7 +304,7 @@ def merge_apk_assets(dir_apk_main, dir_apk_with_asset_pack):
 def unpack_apk(path_dir_tmp, apk_file, number_current, number_total):
     print('[*] unpacking %d of %d' % (number_current, number_total))
     os.chdir(path_dir_tmp)
-    rc = execute_command_subprocess(['apktool', 'd', '-s', apk_file])
+    rc = execute_command_subprocess(['java', '-jar', '_libs/apktool_2.6.1.jar', 'd', '-s', apk_file])
     if rc != 0:
         raise Exception("failed to unpack %s" % apk_file)
     os.remove(os.path.join(path_dir_tmp, apk_file))
@@ -313,7 +313,7 @@ def unpack_apk(path_dir_tmp, apk_file, number_current, number_total):
 def pack_apk(path_dir_tmp, main_apk_dir):
     print('[*] repack apk')
     os.chdir(path_dir_tmp)
-    rc = execute_command_subprocess(['apktool', 'b', main_apk_dir])
+    rc = execute_command_subprocess(['java', '-jar', '_libs/apktool_2.6.1.jar', 'b', main_apk_dir])
     if rc != 0:
         raise Exception("failed to pack apk")
 
@@ -341,7 +341,7 @@ def zipalign_apk(path_dir_tmp):
     if os.path.exists(built_apk_file_aligned_path):
         os.remove(built_apk_file_aligned_path)
 
-    rc = execute_command_subprocess(['zipalign', '-p', '-f', '4', built_apk_file_path, built_apk_file_aligned_path])
+    rc = execute_command_subprocess(['/Users/vlad/android-sdk/build-tools/33.0.1/zipalign', '-p', '-f', '4', built_apk_file_path, built_apk_file_aligned_path])
     if rc != 0:
         raise Exception("failed to zipalign apk")
     if not os.path.exists(built_apk_file_aligned_path):
@@ -349,18 +349,6 @@ def zipalign_apk(path_dir_tmp):
 
     os.remove(built_apk_file_path)
     shutil.move(built_apk_file_aligned_path, built_apk_file_path)
-
-
-def sign_apk(path_dir_tmp, sign_config):
-    build_apk_target_file = os.path.join(path_dir_tmp, '%s%s' % (const_file_target_file, const_ext_apk))
-    if not os.path.exists(build_apk_target_file):
-        raise Exception("result apk not found")
-
-    print('[*] resign apk')
-    os.chdir(path_dir_tmp)
-    rc = execute_command_subprocess(['apksigner', 'sign', '--ks', sign_config['sign.keystore.file'], '--ks-pass', 'pass:%s' % sign_config['sign.keystore.password'], '--ks-key-alias', sign_config['sign.key.alias'], '--key-pass', 'pass:%s' % sign_config['sign.key.password'], build_apk_target_file])
-    if rc != 0:
-        raise Exception("failed to sign apk file")
 
 
 def delete_file_if_exists(path_to_file):
@@ -399,47 +387,9 @@ def update_main_manifest_file(path_main_apk):
         file.write(data)
 
 
-def load_sign_properties():
-    path_sign_config_file = os.path.abspath(os.path.join(os.getcwd(), const_sign_config_properties_file))
-    if not os.path.exists(path_sign_config_file):
-        path_sign_config_file = os.path.abspath(os.path.join(os.path.expanduser('~'), const_sign_config_properties_file))
-        if not os.path.exists(path_sign_config_file):
-            return None
-
-    sign_config_file_lines = list()
-    with open(path_sign_config_file, 'r') as sign_config_file:
-        sign_config_file_lines = sign_config_file.readlines()
-
-    properties = dict()
-    for line in sign_config_file_lines:
-        checked_line = line.strip().replace('\r', '').replace('\n', '')
-        if checked_line is None or checked_line == '' or line.startswith('#'):
-            continue
-        line_parts = checked_line.split('=')
-        if len(line_parts) != 2:
-            continue
-        property_key = line_parts[0].strip()
-        property_value = line_parts[1].strip()
-        properties[property_key] = property_value
-
-    if not 'sign.enabled' in properties.keys() or properties['sign.enabled'].lower() != 'true':
-        return None
-    if 'sign.keystore.file' not in properties.keys() or 'sign.keystore.password' not in properties.keys() or 'sign.key.alias' not in properties.keys() or 'sign.key.password' not in properties.keys():
-        return None
-    keystore_file = properties['sign.keystore.file']
-    if keystore_file == '' or not os.path.exists(keystore_file) or os.path.isdir(keystore_file):
-        return None
-    if properties['sign.keystore.password'] == '' or properties['sign.key.alias'] == '' or properties['sign.key.password'] == '':
-        return None
-
-    return properties
-
-
-def build_single_apk(path_to_tmp_dir, path_to_main_apk_dir, should_sign_apk, sign_config):
+def build_single_apk(path_to_tmp_dir, path_to_main_apk_dir):
     pack_apk(path_to_tmp_dir, path_to_main_apk_dir)
     zipalign_apk(path_to_tmp_dir)
-    if should_sign_apk:
-        sign_apk(path_to_tmp_dir, sign_config)
 
 
 def copy_single_apk_to_working_dir(path_to_tmp_dir, path_to_working_dir, target_name):
@@ -496,14 +446,6 @@ def main():
     if not check_if_executable_exists_in_path(tested_binary):
         print("executable %s not found in $PATH, please install it before running xapktoapk" % tested_binary)
         exit(-2)
-
-    sign_properties = load_sign_properties()
-    should_sign_apk = sign_properties is not None
-    if should_sign_apk:
-        tested_binary = "apksigner"
-        if not check_if_executable_exists_in_path(tested_binary):
-            print("executable %s not found in $PATH, please install it before running xapktoapk" % tested_binary)
-            exit(-2)
 
     xapk_file_name = get_param_xapk_file_name()
     xapk_file_abs_path = get_param_xapk_abs_path()
@@ -576,7 +518,7 @@ def main():
     delete_signature_related_files(apk_main['apk_dir_path'])
     update_main_manifest_file(apk_main['apk_dir_path'])
 
-    build_single_apk(path_dir_tmp, apk_main['apk_dir_path'], should_sign_apk, sign_properties)
+    build_single_apk(path_dir_tmp, apk_main['apk_dir_path'])
     copy_single_apk_to_working_dir(path_dir_tmp, cwd, original_file_name)
 
     shutil.rmtree(path_dir_tmp)
