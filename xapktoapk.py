@@ -304,7 +304,7 @@ def merge_apk_assets(dir_apk_main, dir_apk_with_asset_pack):
 def unpack_apk(path_dir_tmp, apk_file, number_current, number_total):
     print('[*] unpacking %d of %d' % (number_current, number_total))
     os.chdir(path_dir_tmp)
-    rc = execute_command_subprocess(['java', '-jar', '_libs/apktool_2.6.1.jar', 'd', '-s', apk_file])
+    rc = execute_command_subprocess(['java', '-jar', '/Users/vlad/AndroidStudioProjects/android-reverse-starter/_libs/apktool_2.6.1.jar', 'd', '-s', apk_file])
     if rc != 0:
         raise Exception("failed to unpack %s" % apk_file)
     os.remove(os.path.join(path_dir_tmp, apk_file))
@@ -313,7 +313,7 @@ def unpack_apk(path_dir_tmp, apk_file, number_current, number_total):
 def pack_apk(path_dir_tmp, main_apk_dir):
     print('[*] repack apk')
     os.chdir(path_dir_tmp)
-    rc = execute_command_subprocess(['java', '-jar', '_libs/apktool_2.6.1.jar', 'b', main_apk_dir])
+    rc = execute_command_subprocess(['java', '-jar', '/Users/vlad/AndroidStudioProjects/android-reverse-starter/_libs/apktool_2.6.1.jar', 'b', main_apk_dir])
     if rc != 0:
         raise Exception("failed to pack apk")
 
@@ -440,12 +440,10 @@ def main():
     tested_binary = "apktool"
     if not check_if_executable_exists_in_path(tested_binary):
         print("executable %s not found in $PATH, please install it before running xapktoapk" % tested_binary)
-        exit(-2)
 
     tested_binary = "zipalign"
     if not check_if_executable_exists_in_path(tested_binary):
         print("executable %s not found in $PATH, please install it before running xapktoapk" % tested_binary)
-        exit(-2)
 
     xapk_file_name = get_param_xapk_file_name()
     xapk_file_abs_path = get_param_xapk_abs_path()
